@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "cli-spinners": "^2.7.0",
+    "input": "^1.0.1",
+    "instagram-url-direct": "^1.0.13",
+    "node-fetch": "^3.3.0",
+    "nodejs-file-downloader": "^4.10.6",
+    "ora": "^6.1.2",
+    "puppeteer": "^19.5.1"
+  },
+  "scripts": {
+    "start": "node main.js"
+  },
+  "type": "module"
+}
