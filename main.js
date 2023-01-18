@@ -54,13 +54,17 @@ async function sleep(time) {
                 break;
             case 'IG-follower':
                 if (username == "notEmpty" && password == "notEmpty") {
-                    for (const login of logins) {
-                        for (const link of users) {
+                    let i = 0
+                    while (true) {
+                        let login = logins[i % logins.length]
+                        for (let j = 0; j < users.length ; j++) {
+                            let link = users[j]
                             await IG_Following(login.split(":")[0], login.split(":")[1], link)
                             let spinner = ora(`Sleeping 15m for bot detection`).start();
                             await sleep(15 * 60000)
                             spinner.stop();
                         }
+                        i++
                     }
                 }
                 else {
@@ -74,11 +78,14 @@ async function sleep(time) {
                 break;
             case 'IG_Unfollower':
                 if (username == "notEmpty" && password == "notEmpty") {
-                    for (const login of logins) {
-                        await IG_Unfollower(login.split(":")[0], login.split(":")[1], username)
+                    let i = 0
+                    while (true) {
+                        let login = logins[i % logins.length]
+                        await IG_Unfollower(login.split(":")[0], login.split(":")[1], login.split(":")[0])
                         let spinner = ora(`Sleeping 10m for bot detection`).start();
                         await sleep(10 * 60000)
                         spinner.stop();
+                        i++
                     }
                 }
                 else
