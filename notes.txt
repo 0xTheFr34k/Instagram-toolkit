@@ -1,0 +1,2 @@
+//*[@id="mount_0_0_vb"]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/header/section/div[1]/div[1]/div/div[2]/div  // message
+$("div[aria-labelledby] :nth-child(3) > button").parentNode.parentNode.querySelector("a").href // from button following get link of profile

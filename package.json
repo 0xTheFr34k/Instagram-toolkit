@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "cli-spinners": "^2.7.0",
+    "dotenv": "^16.0.3",
     "input": "^1.0.1",
+    "instagram-private-api": "^1.45.3",
     "instagram-url-direct": "^1.0.13",
     "node-fetch": "^3.3.0",
     "nodejs-file-downloader": "^4.10.6",
