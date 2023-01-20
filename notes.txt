@@ -1,2 +1,5 @@
-//*[@id="mount_0_0_vb"]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/header/section/div[1]/div[1]/div/div[2]/div  // message
-$("div[aria-labelledby] :nth-child(3) > button").parentNode.parentNode.querySelector("a").href // from button following get link of profile
+$x('//div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/header/section/div[1]/div[2]/div/div[2]/div')[0].click() // message
+$x('//div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/div[3]/article/div[1]/div/div[1]/div/a')[0].click() // last post
+$x('//div/div/div/div[2]/div/div/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/section[1]/span[1]/button')[0].click() // like
+$x('//div/div/div/div[2]/div/div/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/section[3]/div/form/textarea')[0].value // comment input
+$x('//div/div/div/div[2]/div/div/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/section[3]/div/form/div[2]/div')[0].click() // post comment

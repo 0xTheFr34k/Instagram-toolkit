@@ -1,6 +1,9 @@
 import IG_Downloader from "./index.js";
 import IG_Following from "./following.js";
 import IG_Unfollower from "./unfollower.js";
+import comment_and_linker from "./like_comment.js";
+import Post from "./posting.js";
+import SendDM from "./sendDM.js";
 import input from 'input';
 import fs from 'fs'
 import ora from "ora"
@@ -36,7 +39,7 @@ async function sleep(time) {
     } while (username == '' || password == '')
 
     do {
-        op = await input.select('select option', ['IG-downloder', 'IG-follower', 'IG_Unfollower', 'Quit'])
+        op = await input.select('select option', ['IG-downloder', 'IG-follower', 'IG_Unfollower', "IG_Like_and_comment",'IG_Posting','IG_SendDM','Quit'])
         switch (op) {
             case 'IG-downloder':
                 if (username == "notEmpty" && password == "notEmpty") {
@@ -90,6 +93,12 @@ async function sleep(time) {
                 }
                 else
                     await IG_Unfollower(username, password, username)
+                break;
+            case 'IG_Like_and_comment':
+                break;
+            case 'IG_Posting':
+                break;
+            case 'IG_SendDM':
                 break;
             case 'Quit':
                 console.log('Quit')
