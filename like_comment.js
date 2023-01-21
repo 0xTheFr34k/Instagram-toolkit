@@ -42,12 +42,12 @@ const RandRange = (min, max) => {
 
 const RandComment = async () => {
     const comments = [
-        "great post",
-        "nice post",
-        "good post",
-        "cool post",
-        "awesome post",
-        "amazing post",
+        "🔥🔥🔥",
+        "❤️‍🔥👏 so dreamy",
+        "oh, wow",
+        "Magical!!!💜💜💜",
+        "HOW COOOOOL 💜💜💜💜",
+        "😍💘 so amazing",
     ]
     return comments[Math.floor(Math.random() * comments.length)]
 }
@@ -77,7 +77,11 @@ async function comment_and_linke(username, password) {
             await sleep(60000 * 10);
         }
         await page.goto(profile, { timeout: 0 });
-        await xpath(page, '//div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/div[3]/article/div[1]/div/div[1]/div/a', (el) => el.click())
+        let h1 = await page.waitForXPath('//div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/header/section/ul/li[1]/div/span/span')
+        let h1InnerText = await page.evaluate(el => el.innerText, h1);
+        if (h1InnerText == 0)
+            continue;
+        await xpath(page, '//div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/div[3]/article/div[1]/div/div[1]/div/a', (el) => el.click() && e.click())
         await sleep(RandRange(2000, 4000));
         await xpath(page, '//div/div/div/div[2]/div/div/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/section[1]/span[1]/button', (el) => el.click())
         await sleep(RandRange(2000, 4000));

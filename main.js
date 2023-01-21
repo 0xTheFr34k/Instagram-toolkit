@@ -39,7 +39,7 @@ async function sleep(time) {
     } while (username == '' || password == '')
 
     do {
-        op = await input.select('select option', ['IG-downloder', 'IG-follower', 'IG_Unfollower', "IG_Like_and_comment",'IG_Posting','IG_SendDM','Quit'])
+        op = await input.select('select option', ['IG-downloder', 'IG-follower', 'IG_Unfollower', "IG_Like_and_comment", 'IG_Posting', 'IG_SendDM', 'Quit'])
         switch (op) {
             case 'IG-downloder':
                 if (username == "notEmpty" && password == "notEmpty") {
@@ -60,7 +60,7 @@ async function sleep(time) {
                     let i = 0
                     while (true) {
                         let login = logins[i % logins.length]
-                        for (let j = 0; j < users.length ; j++) {
+                        for (let j = 0; j < users.length; j++) {
                             let link = users[j]
                             await IG_Following(login.split(":")[0], login.split(":")[1], link)
                             let spinner = ora(`Sleeping 15m for bot detection`).start();
@@ -95,6 +95,28 @@ async function sleep(time) {
                     await IG_Unfollower(username, password, username)
                 break;
             case 'IG_Like_and_comment':
+                if (username == "notEmpty" && password == "notEmpty") {
+                    let i = 0
+                    while (true) {
+                        let login = logins[i % logins.length]
+                        for (let j = 0; j < users.length; j++) {
+                            let link = users[j]
+                            await comment_and_linker(login.split(":")[0], login.split(":")[1], link)
+                            let spinner = ora(`Sleeping 15m for bot detection`).start();
+                            await sleep(15 * 60000)
+                            spinner.stop();
+                        }
+                        i++
+                    }
+                }
+                else {
+                    for (const link of users) {
+                        await comment_and_linker(username, password, link)
+                        let spinner = ora(`Sleeping 15m for bot detection`).start();
+                        await sleep(15 * 60000)
+                        spinner.stop();
+                    }
+                }
                 break;
             case 'IG_Posting':
                 break;
